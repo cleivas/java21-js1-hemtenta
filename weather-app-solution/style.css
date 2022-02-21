@@ -1,0 +1,43 @@
+html{
+    font-family: Arial, Helvetica, sans-serif;
+}
+main{
+    border-radius: 20px;
+    width: 50%;
+    min-width: 500px;
+    margin: 1rem auto;
+    padding: 2rem;
+    background: #f3f3f3;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+form{
+    width: 12rem;
+    margin: 3rem auto 4rem;
+}
+h4{
+    text-align: center;
+}
+section{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    margin-bottom: 2rem;
+    
+}
+
+#forecast-weather{
+    margin-top: 4rem;
+    justify-content: space-evenly;
+}
+#forecast-weather div{
+    margin: 0 1rem;
+    text-align: center;
+}
+#forecast-weather img{
+    width: 60px;
+}
+p{
+    margin: 0;
+}
