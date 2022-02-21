@@ -77,7 +77,7 @@ function displayForecast(weather){
         divs[i].appendChild(pdes);
 
         const ptemp = document.createElement('p');
-        ptemp.innerText = `${weather[i].temp}℃`;
+        ptemp.innerText = `${Math.round(weather[i].temp)}℃`;
         divs[i].appendChild(ptemp);
     }
 }
