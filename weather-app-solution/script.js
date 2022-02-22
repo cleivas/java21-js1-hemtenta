@@ -10,11 +10,14 @@ function clickEvent(e){
 
     //Hämta det som skrevs in i inputen och skapa två urler. En för att hämta current weather och en för forecast
     const input = document.querySelector('input');
+
     const urlCurrent = `https://api.weatherbit.io/v2.0/current?city=${input.value}&key=${key}&lang=sv`;
+    
     const urlForecast = `https://api.weatherbit.io/v2.0/forecast/daily?city=${input.value}&key=${key}&lang=sv`;
     
     //Hämta dagens och kommande väder
     getCurrentWeather(urlCurrent);
+
     getForecast(urlForecast);
     input.value = ''; //så att text inputen blir tom
 }
@@ -23,7 +26,9 @@ function getCurrentWeather(url){
     fetch(url).then( 
         res => res.json()
     ).then( 
-        data => displayCurrent(data.data[0]) //Om data hämtats anropas displayCurrent
+        data => {
+            // console.log(data);
+            displayCurrent(data.data[0]) }//Om data hämtats anropas displayCurrent
     ).catch( displayError ); //Annars andropas displayError
 }
 
@@ -32,11 +37,13 @@ function getForecast(url){
         res => res.json()
     ).then( data => {
         //Sparar ner objekten med väderinfo för de fem kommande dagarna
+        console.log(data);
         const fiveDayForecast = [];
         for(let i=1; i<6; i++){
             fiveDayForecast.push(data.data[i]);
-            console.log(data.data[i]);
+            // console.log(data.data[i]);
         }
+        console.log(fiveDayForecast);
         displayForecast(fiveDayForecast); //Skicka med objekten när displayWeather anropas
     }).catch( displayError ); //Om ingen data hämtades anropas displayError
 }
